@@ -1,4 +1,4 @@
-# metricConversionApp
+# Metric Conversion App
 
 This is a Android Application that let's you convert metres to feet and vice versa.
 
