@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         //1 metre = 3.28084 feet
         double metres = Double.parseDouble(metresTxt.getText().toString());
         double feet = metres * 3.8084;
-        outputTV.setText(feet + " Feet. (Freedom Units are best Units!)");
+        outputTV.setText(doubleFormatter(feet) + " Feet. (Freedom Units are best Units!)");
         outputTV.setVisibility(View.VISIBLE);
     }
 
@@ -54,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
     private void convertFeetToMetres(){
         double feet = Double.parseDouble(feetTxt.getText().toString());
         double metres = feet/3.8024;
-        outputTV.setText(metres + " Metres. (Remember, only peasants use the Imperial System!)");
-        outputTV.setVisibility(View.VISIBLE);
+        outputTV.setText(doubleFormatter(metres) + " Metres. (Non peasants use Metric!)");
+        outputTV.setVisibility(View.VISIBLE)
+    }
+
+    //format decimals to 2.d.p
+    private String doubleFormatter (double value){
+        return  String.format("%.2f", value);
     }
 }
