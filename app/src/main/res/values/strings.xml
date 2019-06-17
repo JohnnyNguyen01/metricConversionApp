@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MetresToFeet</string>
+    <string name="app_name">Metres and Feet Converter</string>
     <string name="enter_metres">Enter Metres</string>
     <string name="enter_feet">Enter Feet</string>
     <string name="convertBtn">CONVERT</string>
