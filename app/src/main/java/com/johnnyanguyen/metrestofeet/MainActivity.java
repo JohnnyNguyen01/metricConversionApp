@@ -33,10 +33,28 @@ public class MainActivity extends AppCompatActivity {
         convertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //converting metres to feet
                 if(!metresTxt.getText().toString().isEmpty() && feetTxt.getText().toString().isEmpty())
-                    convertMetresToFeet();
+                    try {
+                        convertMetresToFeet();
+                    }catch (Exception e){
+                        outputTV.setText("Please enter a valid number");
+                        outputTV.setVisibility(View.VISIBLE);
+                    }
+
+                //converting feet to metres
                 else if(metresTxt.getText().toString().isEmpty() && !feetTxt.getText().toString().isEmpty())
-                    convertFeetToMetres();
+                    try {
+                        convertFeetToMetres();
+                    }catch(Exception e){
+                        outputTV.setText("Please enter a valid number");
+                        outputTV.setVisibility(View.VISIBLE);
+                    }
+                //error message if both EditTexts are full
+                else if(!metresTxt.getText().toString().isEmpty() && !feetTxt.getText().toString().isEmpty()){
+                    outputTV.setVisibility(View.VISIBLE);
+                    outputTV.setText("Please only enter the value you want to be converted");
+                }
             }
         });
     }
