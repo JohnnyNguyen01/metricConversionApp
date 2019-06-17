@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         metresTV = findViewById(R.id.metresTV);
         feetTV = findViewById(R.id.feetTV);
         metresTxt = findViewById(R.id.metresTxt);
-        feetTV = findViewById(R.id.feetTxt);
+        feetTxt = findViewById(R.id.feetTxt);
         convertBtn = findViewById(R.id.convertBtn);
         outputTV = findViewById(R.id.outputTV);
 
@@ -33,11 +33,15 @@ public class MainActivity extends AppCompatActivity {
         convertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                convertMetresToFeet();
+                if(!metresTxt.getText().toString().isEmpty() && feetTxt.getText().toString().isEmpty())
+                    convertMetresToFeet();
+                else if(metresTxt.getText().toString().isEmpty() && !feetTxt.getText().toString().isEmpty())
+                    convertFeetToMetres();
             }
         });
     }
 
+    //on click convertes metres to feet
     private void convertMetresToFeet(){
         //1 metre = 3.28084 feet
         double metres = Double.parseDouble(metresTxt.getText().toString());
@@ -46,4 +50,11 @@ public class MainActivity extends AppCompatActivity {
         outputTV.setVisibility(View.VISIBLE);
     }
 
+    //onclick convertes Feet to metres
+    private void convertFeetToMetres(){
+        double feet = Double.parseDouble(feetTxt.getText().toString());
+        double metres = feet/3.8024;
+        outputTV.setText(metres + " Metres. (Remember, only peasants use the Imperial System!)");
+        outputTV.setVisibility(View.VISIBLE);
+    }
 }
