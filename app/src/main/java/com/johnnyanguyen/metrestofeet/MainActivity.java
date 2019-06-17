@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         double feet = Double.parseDouble(feetTxt.getText().toString());
         double metres = feet/3.8024;
         outputTV.setText(doubleFormatter(metres) + " Metres. (Non peasants use Metric!)");
-        outputTV.setVisibility(View.VISIBLE)
+        outputTV.setVisibility(View.VISIBLE);
     }
 
     //format decimals to 2.d.p
